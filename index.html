@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Relojes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f9; }
+        h1 { text-align: center; color: #333; margin-bottom: 10px; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { background: #fff; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; }
+        .price { font-weight: bold; color: #27ae60; font-size: 1.2em; margin: 10px 0; }
+        .btn-whatsapp { display: inline-block; background: #25d366; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .btn-whatsapp:hover { background: #20ba5a; }
+    </style>
+</head>
+<body>
+
+    <h1>Catálogo de Relojes</h1>
+    <p class="subtitle">Haz clic en "Consultar por WhatsApp" para coordinar tu compra.</p>
+
+    <div class="grid" id="catalogo-productos"></div>
+
+    <script>
+        const numeroWhatsApp = "5491189828985";
+        const contenedor = document.getElementById("catalogo-productos");
+        const totalProductos = 48; // Cantidad total de fotos
+
+        for (let i = 1; i <= totalProductos; i++) {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <img src="img/Prod${i}.jpeg" alt="Reloj ${i}">
+                <h3>Reloj Modelo ${i}</h3>
+                <div class="price">Consultar precio</div>
+                <p>Disponible por encargo o stock.</p>
+                <a href="https://wa.me/${numeroWhatsApp}?text=Hola,%20me%20interesa%20el%20Reloj%20Modelo%20${i}" class="btn-whatsapp" target="_blank">Consultar por WhatsApp</a>
+            `;
+            contenedor.appendChild(card);
+        }
+    </script>
+
+</body>
+</html>
