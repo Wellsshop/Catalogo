@@ -147,16 +147,17 @@ class GestorCatalogoApp:
             messagebox.showerror("Error de Excel", f"No se pudo actualizar el archivo Excel:\n{e}")
             return
         
-        # Git Automático con autoconfiguración de usuario
+        # Git Automático con enlace definitivo upstream
         git_cmd = obtener_ruta_git()
         try:
-            # Configurar identidad de Git localmente para evitar errores
             subprocess.run([git_cmd, "config", "user.name", "RelojesOscar"], capture_output=True)
             subprocess.run([git_cmd, "config", "user.email", "catalogo@relojesoscar.com"], capture_output=True)
             
             subprocess.run([git_cmd, "add", "."], check=True)
             subprocess.run([git_cmd, "commit", "-m", f"Agregado producto: {nombre}"], check=True)
-            resultado = subprocess.run([git_cmd, "push"], capture_output=True, text=True)
+            
+            # Comando actualizado con -u origin main para fijar el canal de subida
+            resultado = subprocess.run([git_cmd, "push", "-u", "origin", "main"], capture_output=True, text=True)
             
             if resultado.returncode == 0:
                 messagebox.showinfo("¡Éxito total!", f"¡El producto '{nombre}' se guardó y se publicó en la web correctamente!")
