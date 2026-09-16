@@ -147,7 +147,7 @@ class GestorCatalogoApp:
             messagebox.showerror("Error de Excel", f"No se pudo actualizar el archivo Excel:\n{e}")
             return
         
-        # Git Automático con enlace definitivo upstream
+        # Git Automático con Sincronización Inteligente (Pull + Push)
         git_cmd = obtener_ruta_git()
         try:
             subprocess.run([git_cmd, "config", "user.name", "RelojesOscar"], capture_output=True)
@@ -156,7 +156,10 @@ class GestorCatalogoApp:
             subprocess.run([git_cmd, "add", "."], check=True)
             subprocess.run([git_cmd, "commit", "-m", f"Agregado producto: {nombre}"], check=True)
             
-            # Comando actualizado con -u origin main para fijar el canal de subida
+            # Traer los cambios remotos de GitHub de forma limpia antes de subir
+            subprocess.run([git_cmd, "pull", "origin", "main", "--rebase"], capture_output=True, text=True)
+            
+            # Subir definitivamente
             resultado = subprocess.run([git_cmd, "push", "-u", "origin", "main"], capture_output=True, text=True)
             
             if resultado.returncode == 0:
