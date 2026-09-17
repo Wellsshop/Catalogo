@@ -46,11 +46,5 @@
     "nombre": "Tag Heuer Formula 1 Red",
     "precio": 300000,
     "descripcion": "Reloj Tag Heuer Formula 1 Malla Roja"
-  },
-  {
-    "imagen": "Prod10.jpeg",
-    "nombre": "Tag Heuer Formula 1 Green",
-    "precio": 300000,
-    "descripcion": "Reloj Tag Heuer Formula 1 Green Malla metal"
   }
 ]
