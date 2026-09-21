@@ -16,5 +16,11 @@
     "nombre": "Tag Heuer Formula 1",
     "precio": 300000,
     "descripcion": "Tag Heuer F1\nAmarillo"
+  },
+  {
+    "imagen": "reloj_tag_heuer_f1_1789949872700.jpeg",
+    "nombre": "Reloj Tag Heuer F1",
+    "precio": "$300.000",
+    "descripcion": "Teloj Tag Heuer Formula 1 Amarillo"
   }
 ]
