@@ -28,5 +28,11 @@
     "nombre": "TAH HEUER F1",
     "precio": "$300.000",
     "descripcion": "Relojo Tag Heuer Formula 1  Amarillo"
+  },
+  {
+    "imagen": "cartera_rosa_1789954131012.jpg",
+    "nombre": "Cartera Rosa",
+    "precio": "$200.000",
+    "descripcion": "Cartera de cuero color Rosa"
   }
 ]
